@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { JsonpModule } from '@angular/http';
+import { JsonpModule, HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -22,7 +22,9 @@ import { RoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     JsonpModule,
-    RoutingModule
+    RoutingModule,
+    HttpModule,
+    FormsModule
   ],
   providers: [PartyService],
   bootstrap: [AppComponent]

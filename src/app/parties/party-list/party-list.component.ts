@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import 'rxjs/Rx';
 
 import { PartyService } from "../party.service";
@@ -9,18 +9,22 @@ import { Party } from '../party.model';
   templateUrl: './party-list.component.html',
   styleUrls: ['./party-list.component.css']
 })
-export class PartyListComponent implements OnInit {
-  //partyList: Array<Party> = [{ name: "ADMK" }, { name: "DMK" }];
-  partyList: Array<Party> = [{ name: "ADMK" }, { name: "DMK" }];
+export class PartyListComponent implements OnInit {  
+  partyList: Array<Party>;
 
-  constructor(private partyService: PartyService) {     
+  constructor(private partyService: PartyService) {
   }
 
-  ngOnInit() {
-    //this.partyService.getParties().subscribe(res => { this.partyList = res.results; });
+  ngOnInit() {    
+      this.getParties();
+  }
+
+  getParties()
+  {    
+    this.partyService.getParties().subscribe(res => { this.partyList = res; });
   }
 
   searchParties() {
-    this.partyService.searchParties("").subscribe(res => { this.partyList = res.results; });
+    return this.partyService.searchParties("").subscribe(res => { this.partyList = res.results; });
   }
 }

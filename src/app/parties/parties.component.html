@@ -1,3 +1,21 @@
-<p>
-  parties works!
-</p>
+<form>
+  <table class="table">
+    <tr>
+      <td>Party</td>
+      <td><input type="text" name="party" [(ngModel)]="party.Name" /></td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td>
+        <input type="file" name="image" [(ngModel)]="party.Image" />
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button class="btn" (click)="saveParty()">Add</button>
+      </td>
+    </tr>
+  </table>
+</form>
+

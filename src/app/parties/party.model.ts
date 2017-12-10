@@ -1,4 +1,5 @@
 export interface Party{
-    name: string;
-    image?: File;
+    Id?: number;
+    Name: string;
+    Image?: File;
 }
